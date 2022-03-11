@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @reservationc %>
+
+<div>
+  <%= link_to "Edit this reservationc", edit_reservationc_path(@reservationc) %> |
+  <%= link_to "Back to reservationcs", reservationcs_path %>
+
+  <%= button_to "Destroy this reservationc", @reservationc, method: :delete %>
+</div>

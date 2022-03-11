@@ -1,0 +1,53 @@
+
+  <p id="notice"><%= notice %></p>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @reservationcs.each do |reservationc| %>
+    <tr>
+      <td><%= reservationc.name %></td>
+      <td><%= reservationc.start_time %></td>
+      <td><%= link_to 'Show', reservationc %></td>
+      <td><%= link_to 'Edit', edit_reservationc_path(reservationc) %></td>
+      <td><%= link_to 'Destroy', reservationc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+<!--from here--!>
+
+<%= week_calendar events: @reservationcs do |date, reservationcs| %>
+  <%= date %>
+  <br/><p>7:00   <%= link_to 'Reservar', new_reservationc_path %></p> 
+  <br/><p>8:00 <%= link_to 'Reservar', new_reservationc_path %></p> 
+  <br/><p>9:00 <%= link_to 'Reservar', new_reservationc_path %></p> 
+  <br/><p>10:00 <%= link_to 'Reservar', new_reservationc_path %></p> 
+  <br/><p>11:00 <%= link_to 'Reservar', new_reservationc_path %></p> 
+  <br/><p>12:00 <%= link_to 'Reservar', new_reservationc_path %></p> 
+  <br/><p>13:00 <%= link_to 'Reservar', new_reservationc_path %></p> 
+  <br/><p>14:00 <%= link_to 'Reservar', new_reservationc_path %></p> 
+  <br/><p>15:00 <%= link_to 'Reservar', new_reservationc_path %></p> 
+  <br/><p>16:00 <%= link_to 'Reservar', new_reservationc_path %></p> 
+  <br/><p>17:00 <%= link_to 'Reservar', new_reservationc_path %></p> 
+  <br/><p>18:00 <%= link_to 'Reservar', new_reservationc_path %></p> 
+  <br/><p>19:00 <%= link_to 'Reservar', new_reservationc_path %></p> 
+  <br/><p>20:00 <%= link_to 'Reservar', new_reservationc_path %></p> 
+  <br/><p>21:00 <%= link_to 'Reservar', new_reservationc_path %></p> 
+  <br/><p>22:00 <%= link_to 'Reservar', new_reservationc_path %></p> 
+  <br/><p>23:00 <%= link_to 'Reservar', new_reservationc_path %></p> 
+
+  <% reservationcs.each do |reservationc| %>
+
+  <% end %>
+<% end %>
+<!--Add up to here--!>
+</div>
