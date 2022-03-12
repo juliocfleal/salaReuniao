@@ -1,6 +1,7 @@
 module ApplicationHelper
+
   def readable_time(time)
-    time.strftime('%b %d, %I:%M%P')
+    time.strftime(" %m/%d , %I:%M ")
   end
 
   def author_of(record)
@@ -23,6 +24,7 @@ module ApplicationHelper
   end
 
   def nav_classes
+    
     if %w[
          devise/registrations
          devise/sessions

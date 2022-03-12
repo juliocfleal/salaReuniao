@@ -1,0 +1,26 @@
+
+<div class="bg-white p-10 border rounded">
+  <div id="all-meetings" class="tab-panel">
+    <h1>Meetings</h1>
+    <% meetings.each do |meeting| %>
+      <div class="flex flex-wrap items-center justify-start p-4 border-b border-grey-light mb-6">
+        <div class="flex-1 flex justify-between">
+          <div>
+            <%= link_to meeting.name, meeting, class: "link mr-4" %>
+          </div>
+          <div>
+              <%= readable_time(meeting.start_time) %> &ndash;
+              <%= readable_time(meeting.end_time) %>
+          </div>
+        </div>
+      </div>
+      <%= link_to "Cancel Meeting", meeting, method: :delete, data: { confirm: "Tem certeza?" }, class: "btn btn-destroy ml-4" if admin? %>
+    <% end %>
+  </div>
+  <div id="calendar" class="tab-panel active">
+    <h2>Meeting Calendar</h2>
+    <div id="meeting-calendar">
+      <%= render "calendar", meetings: meetings  %>
+    </div>
+  </div>
+</div>
