@@ -28,7 +28,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+ gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -42,14 +42,11 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem "simple_calendar", "~> 2.4"
-
-
 # Use Sass to process CSS
- gem "sassc-rails"
+# gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -73,3 +70,22 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+gem "devise", "~> 4.8"
+gem "friendly_id", "~> 5.4", ">= 5.4.2"
+gem "sidekiq", "~> 6.3", ">= 6.3.1"
+gem "name_of_person", "~> 1.1", ">= 1.1.1"
+gem "cssbundling-rails"
+gem "pay", "~> 3.0"
+gem "stripe", ">= 2.8", "< 6.0"
+
+
+gem 'foreman', '~> 0.87.2'
+gem 'tailwindcss-rails', '~> 2.0.8'
+gem 'webpacker', '~> 5.4.3', '>= 5.4.3'
+gem 'railties', '~> 7.0.2.3'
+
+# Gem for identation
+gem 'prettier'
+
+# Gem for calendar
+gem 'simple_calendar', '~> 2.4.3'
