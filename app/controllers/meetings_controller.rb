@@ -1,9 +1,10 @@
 class MeetingsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_meeting, only: %i[ show edit update destroy ]
 
   # GET /meetings or /meetings.json
   def index
-    @meetings = Meeting.all
+    @meetings = current_user.meetings.all
   end
 
   # GET /meetings/1 or /meetings/1.json
@@ -13,6 +14,7 @@ class MeetingsController < ApplicationController
   # GET /meetings/new
   def new
     @meeting = Meeting.new
+    @meeting.user_id = current_user.id
   end
 
   # GET /meetings/1/edit
