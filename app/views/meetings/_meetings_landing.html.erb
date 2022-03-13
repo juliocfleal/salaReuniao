@@ -1,24 +1,35 @@
-
-<div class="bg-white p-10 border rounded">
+<div class="bg-white p-10 border">
   <div id="all-meetings" class="tab-panel">
-    <h1>Meetings</h1>
+    <h1>Reuniões</h1>
     <% meetings.each do |meeting| %>
       <div class="flex flex-wrap items-center justify-start p-4 border-b border-grey-light mb-6">
         <div class="flex-1 flex justify-between">
-          <div>
-            <%= link_to meeting.name, meeting, class: "link mr-4" %>
-          </div>
-          <div>
-              <%= readable_time(meeting.start_time) %> &ndash;
-              <%= readable_time(meeting.end_time) %>
-          </div>
+          <%# Alow edit only future user meetigs %>
+          <% if current_user.id == meeting.user.id && Time.now < meeting.start_time %>
+            <div>
+              <%= link_to meeting.name, meeting, class: "btn mr-4" %>
+            </div>
+            <div>
+              <%= l meeting.start_time, format: :short, default: '-' %> &ndash;
+              <%= l meeting.end_time, format: :short, default: '-'  %>
+              <%=  link_to "Editar", meeting, class:"border w-full p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block lg:ml-2" %>
+            </div>
+          <% else %>
+            <div>
+              <%= meeting.name %>
+            </div>
+            <div>
+              <%= l meeting.start_time, format: :short, default: '-' %> &ndash;
+              <%= l meeting.end_time, format: :short, default: '-'  %>
+            </div>
+          <% end %>
         </div>
       </div>
-      <%= link_to "Cancel Meeting", meeting, method: :delete, data: { confirm: "Tem certeza?" }, class: "btn btn-destroy ml-4" if admin? %>
+      <%= link_to "Cancelar reunião", meeting, method: :delete, data: { confirm: "Tem certeza?" }, class: "btn btn-destroy ml-4" if admin? %>
     <% end %>
   </div>
   <div id="calendar" class="tab-panel active">
-    <h2>Meeting Calendar</h2>
+    <h2>Calendario de Reunioes</h2>
     <div id="meeting-calendar">
       <%= render "calendar", meetings: meetings  %>
     </div>

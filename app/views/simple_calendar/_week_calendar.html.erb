@@ -1,32 +1,32 @@
 <div class="simple-calendar">
-  <div class="calendar-heading">
-    <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
+  <div class="calendar-heading w-full border border-collapse">
+    <%= link_to t('simple_calendar.previous', default: 'Anterior'), calendar.url_for_previous_view, class:"items-center p-2 -mr-1 rounded-lg focus:bg-gray-100 justify-between " %>
     <% if calendar.number_of_weeks == 1 %>
-      <span class="calendar-title"><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number %></span>
+      <span class="calendar-title"><%= t('simple_calendar.week', default: 'Semana') %> <%= calendar.week_number %></span>
     <% else %>
-      <span class="calendar-title"><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number %> - <%= calendar.end_week %></span>
+      <span class="calendar-title"><%= t('simple_calendar.week', default: 'Semana') %> <%= calendar.week_number %> - <%= calendar.end_week %></span>
     <% end %>
-    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+    <%= link_to t('simple_calendar.next', default: 'Proxima'), calendar.url_for_next_view %>
   </div>
-
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <% date_range.slice(0, 7).each do |day| %>
-          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+  <table class="table-auto table-striped w-full border border-collapse">
+    <thead class="table table-striped border">
+      <tr class="table table-striped border">
+        <% date_range.slice(0, 5).each do |day| %>
+          
+          <th class="table table-striped justify-between border border-collapser">
+          <%= t('date.abbr_day_names')[day.wday] %>
+          </th>
         <% end %>
       </tr>
     </thead>
-
-    <tbody>
-      <% date_range.each_slice(7) do |week| %>
+    <tbody class="table table-striped  border border-collapse">
+      <% date_range.each_slice(5) do |week| %>
         <tr>
           <% week.each do |day| %>
-            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
-                <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+            <%= content_tag :td, lass: calendar.td_classes_for(day) do %>
+              <% if day.wday == 0 || day.wday == 6 %>
               <% else %>
-                <% passed_block.call day, sorted_events.fetch(day, []) %>
+                <span class="text-sm text-grey-darker"> <% passed_block.call day, sorted_events.fetch(day, []) %> </span>
               <% end %>
             <% end %>
           <% end %>

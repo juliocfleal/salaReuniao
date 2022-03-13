@@ -4,7 +4,7 @@ class MeetingsController < ApplicationController
 
   # GET /meetings or /meetings.json
   def index
-    @meetings = current_user.meetings.all
+    @meetings = Meeting.all
   end
 
   # GET /meetings/1 or /meetings/1.json
@@ -27,7 +27,7 @@ class MeetingsController < ApplicationController
 
     respond_to do |format|
       if @meeting.save
-        format.html { redirect_to meeting_url(@meeting), notice: "Meeting was successfully created." }
+        format.html { redirect_to meeting_url(@meeting), notice: "Agendamento criado com sucesso!" }
         format.json { render :show, status: :created, location: @meeting }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class MeetingsController < ApplicationController
   def update
     respond_to do |format|
       if @meeting.update(meeting_params)
-        format.html { redirect_to meeting_url(@meeting), notice: "Meeting was successfully updated." }
+        format.html { redirect_to meeting_url(@meeting), notice: "Agendamento atualizado com sucesso!" }
         format.json { render :show, status: :ok, location: @meeting }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class MeetingsController < ApplicationController
     @meeting.destroy
 
     respond_to do |format|
-      format.html { redirect_to meetings_url, notice: "Meeting was successfully destroyed." }
+      format.html { redirect_to meetings_url, notice: "Agendamento deletado com sucesso!" }
       format.json { head :no_content }
     end
   end

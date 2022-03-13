@@ -1,8 +1,27 @@
-<%= month_calendar events: meetings do |date, meetings| %>
+<%= week_calendar events: meetings do |date, meetings| %>
   <%= date %>
   <% meetings.each do |meeting| %>
-    <div>
-      <%= link_to meeting.name, meeting, class: "link" %>
+    <% time = Time.now %>
+    <div class="bg-gray">
+    <%# Alow edit only future user meetigs %>
+      <% if current_user.id == meeting.user.id && Time.now < meeting.start_time %>
+        <h1 class="text-2xl">
+          <%= l meeting.start_time, format: :hour, default: '-' %> as 
+          <%= l meeting.end_time, format: :hour , default: '-' %> &ndash;
+        </h1>
+        Reunião:
+        <%=  meeting.name %> &ndash;
+        Usuario:
+        <%=  meeting.user.name %>
+        <%=  link_to "Editar", meeting, class:"border w-full p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block lg:ml-2" %>
+      <% else %>
+        <%= l meeting.start_time, format: :hour, default: '-' %> as
+        <%= l meeting.end_time, format: :hour , default: '-' %> &ndash;
+        Reunião:
+        <%=  meeting.name %> &ndash;
+        Usuario:
+        <%=  meeting.user.name %>
+      <% end %>
     </div>
   <% end %>
 <% end %>

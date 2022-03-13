@@ -12,12 +12,12 @@ class MeetingsTest < ApplicationSystemTestCase
 
   test "should create meeting" do
     visit meetings_url
-    click_on "New meeting"
+    click_on "Nova Reunião"
 
-    fill_in "End time", with: @meeting.end_time
-    fill_in "Name", with: @meeting.name
-    fill_in "Start time", with: @meeting.start_time
-    fill_in "User", with: @meeting.user_id
+    fill_in "Termino", with: @meeting.end_time
+    fill_in "Nome", with: @meeting.name
+    fill_in "Inicio", with: @meeting.start_time
+    fill_in "Usuario", with: @meeting.user_id
     click_on "Create Meeting"
 
     assert_text "Meeting was successfully created"
@@ -26,16 +26,16 @@ class MeetingsTest < ApplicationSystemTestCase
 
   test "should update Meeting" do
     visit meeting_url(@meeting)
-    click_on "Edit this meeting", match: :first
+    click_on "Editar Reunião", match: :first
 
-    fill_in "End time", with: @meeting.end_time
-    fill_in "Name", with: @meeting.name
-    fill_in "Start time", with: @meeting.start_time
-    fill_in "User", with: @meeting.user_id
+    fill_in "Termino", with: @meeting.end_time
+    fill_in "Nome", with: @meeting.name
+    fill_in "Inicio", with: @meeting.start_time
+    fill_in "Usuario", with: @meeting.user_id
     click_on "Update Meeting"
 
-    assert_text "Meeting was successfully updated"
-    click_on "Back"
+    assert_text "Reunião marcada com sucesso!"
+    click_on "Voltar"
   end
 
   test "should destroy Meeting" do
