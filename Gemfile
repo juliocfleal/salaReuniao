@@ -9,7 +9,8 @@ gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-
+  # Use sqlite3 as the database for Active Record
+ # gem "sqlite3", "~> 1.4"
 
 
 # Use the Puma web server [https://github.com/puma/puma]
@@ -51,8 +52,7 @@ gem "image_processing", "~> 1.2"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+
 end
 
 group :development do
@@ -72,6 +72,10 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+group :production do
+
+  gem 'pg'
+end
 gem "devise", "~> 4.8"
 gem "friendly_id", "~> 5.4", ">= 5.4.2"
 gem "sidekiq", "~> 6.3", ">= 6.3.1"
@@ -81,10 +85,7 @@ gem "pay", "~> 3.0"
 gem "stripe", ">= 2.8", "< 6.0"
 
 
-gem 'foreman', '~> 0.87.2'
-gem 'tailwindcss-rails', '~> 2.0.8'
-gem 'webpacker', '~> 5.4.3', '>= 5.4.3'
-gem 'railties', '~> 7.0.2.3'
+
 
 # Gem for identation
 gem 'prettier'
@@ -93,6 +94,4 @@ gem 'prettier'
 gem 'simple_calendar', '~> 2.4.3'
 gem 'time', '~> 0.2.0'
 
-# Gem for postrgres for deploy
 
-gem 'pg', '~> 1.3.3'
