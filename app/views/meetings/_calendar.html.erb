@@ -2,9 +2,10 @@
   <%= date %>
   <% meetings.each do |meeting| %>
     <% time = Time.now %>
-    <div class="bg-gray">
+    <div class="">
     <%# Alow edit only future user meetigs %>
       <% if current_user.id == meeting.user.id && Time.now < meeting.start_time %>
+      <div class="rounded bg-gray-200">
         <h1 class="text-2xl">
           <%= l meeting.start_time, format: :hour, default: '-' %> as 
           <%= l meeting.end_time, format: :hour , default: '-' %> &ndash;
@@ -13,7 +14,8 @@
         <%=  meeting.name %> &ndash;
         Usuario:
         <%=  meeting.user.name %>
-        <%=  link_to "Editar", meeting, class:"border w-full p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block lg:ml-2" %>
+        <%=  link_to "Editar", meeting, class:"bg-gray-500 border p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block lg:ml-2" %>
+      </div>
       <% else %>
         <%= l meeting.start_time, format: :hour, default: '-' %> as
         <%= l meeting.end_time, format: :hour , default: '-' %> &ndash;

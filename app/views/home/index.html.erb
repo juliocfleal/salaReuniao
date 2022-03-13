@@ -4,7 +4,7 @@
     <h1 class="mb-4 text-2xl font-semibold text-gray-800 text-center mt-3">Sala de Reuniões</h1>
     <p class="leading-snug text-gray-700 text-lg max-w-3xl mx-auto pb-6">Uma sala de reuniões para todos.</p>
     <% if user_signed_in? %>
-    <%= link_to "Acessar reuniões.", meetings_path %>
+    <%= link_to "Acessar reuniões.", meetings_path, class:"bg-gray-500 border p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block lg:ml-2" %>
     <% else %>
       <%= link_to "Cadastre-se para realizar uma reserva.", new_user_registration_path %>
     <% end %>

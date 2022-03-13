@@ -18,7 +18,7 @@ class MeetingsTest < ApplicationSystemTestCase
     fill_in "Nome", with: @meeting.name
     fill_in "Inicio", with: @meeting.start_time
     fill_in "Usuario", with: @meeting.user_id
-    click_on "Create Meeting"
+    click_on "Criar Reunião"
 
     assert_text "Meeting was successfully created"
     click_on "Back"

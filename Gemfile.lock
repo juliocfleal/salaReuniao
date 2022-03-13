@@ -88,6 +88,7 @@ GEM
     crass (1.0.6)
     cssbundling-rails (1.1.0)
       railties (>= 6.0.0)
+    date (3.2.2)
     debug (1.4.0)
       irb (>= 1.3.6)
       reline (>= 0.2.7)
@@ -155,6 +156,7 @@ GEM
     orm_adapter (0.5.0)
     pay (3.0.24)
       rails (>= 6.0.0)
+    pg (1.3.4-x64-mingw32)
     prettier (2.0.0)
     public_suffix (4.0.6)
     puma (5.6.2)
@@ -229,6 +231,8 @@ GEM
     tailwindcss-rails (2.0.8-x64-mingw32)
       railties (>= 6.0.0)
     thor (1.2.1)
+    time (0.2.0)
+      date
     timeout (0.2.0)
     turbo-rails (1.0.1)
       actionpack (>= 6.0.0)
@@ -276,6 +280,7 @@ DEPENDENCIES
   jbuilder
   name_of_person (~> 1.1, >= 1.1.1)
   pay (~> 3.0)
+  pg (~> 1.3.3)
   prettier
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.3)
@@ -289,6 +294,7 @@ DEPENDENCIES
   stimulus-rails
   stripe (>= 2.8, < 6.0)
   tailwindcss-rails (~> 2.0.8)
+  time (~> 0.2.0)
   turbo-rails
   tzinfo-data
   web-console
