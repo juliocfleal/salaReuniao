@@ -1,7 +1,9 @@
+
 {
   "name": "app",
   "private": "true",
   "dependencies": {
+    "@hotwired/stimulus": "^3.0.1",
     "@rails/actiontext": "^6.1.5",
     "@rails/webpacker": "5.4.3",
     "npm-run-all": "^4.1.5",
@@ -9,7 +11,8 @@
     "webpack-cli": "3.3.12"
   },
   "scripts": {
-    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
+    "build": "esbuild app/javascript/. --bundle --sourcemap --outdir=app/assets/builds",
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css"
   },
   "devDependencies": {
     "@prettier/plugin-ruby": "^2.0.0",
