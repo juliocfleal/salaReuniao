@@ -25,10 +25,8 @@
     <%= form.label :final %>
     <%= form.datetime_select :end_time, { start_day: Date.today, start_year: Date.today.year, minute_step: 30 }, { class: "select py-2 px-2 mr-2" } %>
   </div>
+
   <div class="inline">
-  <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 inline-block font-medium cursor-pointer" %>
-</div>
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit class: "bg-gray-500 border p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block lg:ml-2" %>
   </div>
 <% end %>

@@ -3,10 +3,10 @@
   <div id="all-meetings" class="tab-panel">
     <h1>Minhas Reuniões Agendadas</h1>
     <% meetings.each do |meeting| %>
-      <div class="flex flex-wrap items-center justify-start p-1 border-b border-grey-light mb-6">
-        <div class="flex-1 flex justify-between">
           <%# Alow edit only future user meetigs %>
           <% if current_user.id == meeting.user.id && Time.now < meeting.start_time %>
+      <div class="flex flex-wrap items-center justify-start p-1 border-b border-grey-light mb-6">
+        <div class="flex-1 flex justify-between">
             <div>
               <%= link_to meeting.name, meeting, class: "btn mr-4" %>
             </div>
@@ -16,11 +16,11 @@
               <%= l meeting.end_time, format: :short, default: '-'  %>
               <%=  link_to "Editar", meeting, class:"bg-gray-500 border p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block lg:ml-2" %>
             </div>
-          <% else %>
-          <% end %>
         </div>
       </div>
-      <%= link_to "Cancelar reunião", meeting, method: :delete, data: { confirm: "Tem certeza?" }, class: "btn btn-destroy ml-4" if admin? %>
+          <% else %>
+          <% end %>
+
     <% end %>
   </div>
                 <div class="flex-1 flex justify-between">

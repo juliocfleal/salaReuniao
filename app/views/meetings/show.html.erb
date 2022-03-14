@@ -4,10 +4,10 @@
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
     <%= render @meeting %>
-    <%= link_to 'Editar reunião', edit_meeting_path(@meeting), class:"bg-gray-500 border p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block lg:ml-2" %>
-    <div class="inline-block ml-2">
-      <%= link_to 'Deletar reunião', meeting_path(@meeting), method: :delete, class:"bg-gray-500 border p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block lg:ml-2" %>
+    <div class="flex items-center mr-6 flex-no-shrink">
+      <%= link_to 'Editar reunião', edit_meeting_path(@meeting), class:"bg-gray-500 border p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block lg:ml-2" %>
+      <%= button_to 'Deletar reunião', meeting_path(@meeting), method: :delete, class:"bg-gray-500 border p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block lg:ml-2" %>
+      <%= link_to 'Voltar a reuniões', meetings_path, class:"bg-gray-500 border p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block lg:ml-2" %>
     </div>
-    <%= link_to 'Voltar a reuniões', meetings_path, class:"bg-gray-500 border p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block lg:ml-2" %>
   </div>
 </div>
